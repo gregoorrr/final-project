@@ -21,11 +21,6 @@ function Home() {
       fetchData()
       }, [username]);
 
-
-   function Alert() {
-    alert("mi dispiace per l'estetica ma scacchi mi ha impiegato tanto tempo,e non sono riuscito ad implementare la possibilità di raggiungere il profilo dalla home entro la scadenza, si può raggiungere solo dopo la registrazione o il login, in tal caso /profile/:username,una volta raggiunta la pagina profilo puoi fare tutto ;D")
-   }
-   Alert()
   return (
     <>
         <main className="bg-stone-800 flex flex-col items-between  gap-14 text-white  h-fit p-14">
