@@ -51,7 +51,7 @@ function Login() {
                 
                 <div className="flex gap-5 items-center justify-center">
                     <p>Need an account?</p>
-                    <Link to='/register' className="bg-green-900 px-9 py-3 hover:bg-green-700  text-lg">
+                    <Link to='/' className="bg-green-900 px-9 py-3 hover:bg-green-700  text-lg">
                         Sign Up
                     </Link>
                 </div>
