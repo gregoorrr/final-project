@@ -16,7 +16,7 @@ function SignUp() {
         .then(res => {
             console.log(res.data)
             console.log(name,email,password)
-            navigate(`/profile/${name}`)
+            navigate(`/home/${name}`)
         })
         .catch((err)=> console.log(err))
     }
