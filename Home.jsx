@@ -21,6 +21,8 @@ function Home() {
       fetchData()
       }, [username]);
 
+
+
   return (
     <>
         <main className="bg-stone-800 flex flex-col items-between  gap-14 text-white  h-fit p-14">
@@ -51,25 +53,25 @@ function Home() {
                             </h1>
                         
     
-                        <Link to='/game' className="bg-green-800 hover:bg-green-600 px-7 py-4 rounded-lg">
+                        <Link to={`/game/${username}` }className="bg-green-800 hover:bg-green-600 px-7 py-4 rounded-lg">
                             <p  className="text-left text-2xl">VS Online</p>
                             <p className="text-left text-xl">
                                 Gioca vs avversari del tuo livello
                             </p>
                         </Link>
-                        <Link to='/game' className="bg-green-800 hover:bg-green-600 px-14 py-4 rounded-lg">
+                        <Link to={`/game/${username}` } className="bg-green-800 hover:bg-green-600 px-14 py-4 rounded-lg">
                             <p  className="text-left text-2xl">VS Computer</p>
                             <p className="text-left text-xl">
                                 Gioca contro il computer
                             </p>
                         </Link>
-                        <Link to='/game' className="bg-green-800 hover:bg-green-600 px-20 py-4 rounded-lg">
+                        <Link to={`/game/${username}` } className="bg-green-800 hover:bg-green-600 px-20 py-4 rounded-lg">
                             <p  className="text-left text-2xl">VS Amici</p>
                             <p className="text-left text-xl">
                                 Gioca con un amico
                             </p>
                         </Link>
-                        <Link to='/game' className="bg-green-800 hover:bg-green-600 px-20 py-4 rounded-lg">
+                        <Link to={`/game/${username}` } className="bg-green-800 hover:bg-green-600 px-20 py-4 rounded-lg">
                             <p  className="text-left text-2xl">Tornei</p>
                             <p className="text-left text-xl">
                                 Iscriviti ad un torneo
