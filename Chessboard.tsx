@@ -1,12 +1,29 @@
 import Tile from "./Tile";
-import { Link } from "react-router-dom";
+import { Link, useParams } from "react-router-dom";
 import  React, { useRef }  from "react";
-import {useState } from "react";
+import {useState,useEffect } from "react";
 import Referee from "../referee/referee";
 import { verticalSquares,horizontalSquares,initialBoardState,pieceType,teamType,Piece,Position,gridSize,samePosition } from "../Constants";
+import axios from "axios";
 
 function Chessboard() {
     
+
+    const { username } = useParams()
+
+    useEffect(() => {
+        const fetchData = async () =>{
+        try {
+        await axios.get(`http://localhost:3001/game/${username}`);
+        
+        } catch (error) {
+          console.error(error);
+        }
+        
+      }
+    
+      fetchData()
+      }, [username]);
 
     const [grabPosition,setGrabPosition] = useState<Position>({x:-1, y: -1})
     const [grabbedPiece,setGrabbedPiece] = useState<HTMLElement | null>(null)
@@ -133,7 +150,7 @@ function dropPiece(e: React.MouseEvent) {
             >
             {board} 
             </div>
-            <Link to='/' className="text-white text-2xl font-bold ml-20">Esci dalla partita</Link>
+            <Link to={`/home/${username}`} className="text-white text-2xl font-bold ml-20">Esci dalla partita</Link>
         </div>
     
         
