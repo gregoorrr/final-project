@@ -1,8 +1,27 @@
-import { Link,  } from "react-router-dom"
-
-
+import { Link, useParams  } from "react-router-dom"
+import { useEffect } from "react";
+import axios from "axios";
 import './Home.css'
+
 function Home() {
+    
+    const { username } = useParams()
+
+    useEffect(() => {
+        const fetchData = async () =>{
+        try {
+        await axios.get(`http://localhost:3001/home/${username}`);
+        
+        } catch (error) {
+          console.error(error);
+        }
+        
+      }
+    
+      fetchData()
+      }, [username]);
+
+
    function Alert() {
     alert("mi dispiace per l'estetica ma scacchi mi ha impiegato tanto tempo,e non sono riuscito ad implementare la possibilità di raggiungere il profilo dalla home entro la scadenza, si può raggiungere solo dopo la registrazione o il login, in tal caso /profile/:username,una volta raggiunta la pagina profilo puoi fare tutto ;D")
    }
@@ -17,8 +36,10 @@ function Home() {
                         <Link to='/rules' className=" bg-stone-700 rounded-md p-4">Regole</Link>
                 
                         <div className="flex flex-col gap-6">
-                            <Link to='/register' className="underline bg-stone-700 rounded-md p-4">Registrati!</Link>
+                            <Link to='/' className="underline bg-stone-700 rounded-md p-4">Registrati!</Link>
                             <Link to='/login' className="underline bg-green-800 rounded-md p-4">Accedi!</Link>
+                            <Link to={`/profile/${username}`} className=" bg-green-800 rounded-md p-4">Profilo</Link>
+
                         </div>
                         
                     </nav>
