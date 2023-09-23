@@ -38,6 +38,24 @@ app.get('/profile/:username',async (req,res) =>{
     }
     
 })
+app.get('/home/:username',async (req,res) =>{
+    const { username } = req.params
+    try{
+        const user = await registerModel.find({name : username})
+        console.log(req.params.name);
+        if(!user){
+            return res.status(404).json({message : 'User not found'})
+        }else{
+            res.setHeader('Access-Control-Allow-Origin', '*');
+            res.json(user)
+        }
+        
+    }catch(err){
+        console.error(err)
+        res.status(500).json({message: 'Server Error'})
+    }
+    
+})
 
 app.get('/updatedProfile/:username',async (req,res) =>{
     try{
